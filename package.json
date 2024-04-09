@@ -1,0 +1,30 @@
+{
+  "name": "markups",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "npx gulp build --gulpfile=config/main.js"
+  },
+  "keywords": [],
+  "author": "https://github.com/moonwalker935",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.24.4",
+    "@babel/preset-env": "^7.24.4",
+    "del": "^7.1.0",
+    "glob": "^10.3.12",
+    "gulp": "^5.0.0",
+    "gulp-autoprefixer": "^9.0.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-uglify": "^3.0.2",
+    "i": "^0.3.7",
+    "npm": "^10.5.1"
+  },
+  "browserslist": [
+    "last 2 versions"
+  ]
+}
