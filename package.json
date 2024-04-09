@@ -13,6 +13,7 @@
   "devDependencies": {
     "@babel/core": "^7.24.4",
     "@babel/preset-env": "^7.24.4",
+    "@mr-hope/gulp-sass": "^3.1.1",
     "del": "^7.1.0",
     "glob": "^10.3.12",
     "gulp": "^5.0.0",
@@ -20,6 +21,10 @@
     "gulp-babel": "^8.0.0",
     "gulp-clean-css": "^4.3.0",
     "gulp-htmlmin": "^5.0.1",
+    "gulp-less": "^5.0.0",
+    "gulp-pug": "^5.0.0",
+    "gulp-replace": "^1.1.4",
+    "gulp-typescript": "^6.0.0-alpha.1",
     "gulp-uglify": "^3.0.2",
     "i": "^0.3.7",
     "npm": "^10.5.1"

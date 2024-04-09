@@ -11,6 +11,6 @@ export const getArgument = (argumentName) => {
 
 export const getWorkDirFileExtensions = (workDir) => {
   const filePaths = globSync(`${workDir}/**/*`, { withFileTypes: true });
-  const extensions = filePaths.map(posix => path.extname(posix.name)).filter(Boolean);
+  const extensions = filePaths.map(posix => path.extname(posix.name).slice(1)).filter(Boolean);
   return [...new Set(extensions)];
 };

@@ -1,11 +1,33 @@
-body {
-  margin:0;
-  background-color:#000;
-  color:#fff;
+@font-face {
+  font-family: Montserrat;
+  src: url("../fonts/Montserrat-Italic-VariableFont_wght.ttf");
 }
 
-div {
-  display:flex;
-  justify-content:center;
-  align-content:center;
+:root {
+  --box-height: 100px;
+}
+
+body {
+  margin: 0;
+  background-image: url("../images/img.png");
+  font-family: Montserrat, sans-serif;
+}
+
+img {
+  filter: invert(1);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  height: var(--box-height);
+  line-height: var(--box-height);
+  font-size: 50px;
 }

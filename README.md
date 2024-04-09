@@ -6,13 +6,17 @@ Minimal requirements: Node.js and npm.
 Run `npm i`
 
 ## Scripts
-- `npm run build -- --name=example` (`example` should be a direct descendant directory name in the "src" directory)
+- `npm run build`
+
+Options:
+- `name` - is a direct descendant directory name in the "src" directory. It's optional.
+
+Example: `npm run build -- --name=example`.
 
 ## ToDo
 - `serve` command
-- dynamic enabling Pug, SASS/SCSS, Less, Stylus, PostCSS, SVG, TS, JSON handlers
+- dynamic enabling SVG and JSON handlers
 - JS and CSS sourcemaps
 - hidden enhanced Gulp settings at project's directory
 - images compression
-- copy files
 - publish all web-sites with navigation index.html at directly src directory
