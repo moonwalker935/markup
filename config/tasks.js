@@ -12,6 +12,7 @@ import uglify from 'gulp-uglify';
 import ts from 'gulp-typescript';
 
 import { paths } from './paths.js';
+import { getWorkDirFileExtensions } from './utils.js';
 
 
 const cleanDist = callback => {
@@ -78,6 +79,40 @@ const moveImages = () => src(`${paths.entry}/**/*.{png,jpg,gif,ico,webp}`, { rem
 const moveFonts = () => src(`${paths.entry}/**/*.{ttf,otf,woff,eot}`, { removeBOM: false })
   .pipe(dest(paths.output));
 
+const entryHas = getWorkDirFileExtensions(paths.entry).reduce((extensions, extension) => {
+  extensions[extension] = true;
+  return extensions;
+}, {});
+
+const htmlTasks = (() => {
+  const tasks = [];
+  if (entryHas.html) tasks.push(cleanHtml);
+  if (entryHas.pug) tasks.push(compilePug);
+  return tasks;
+})();
+
+const cssTasks = (() => {
+  const tasks = [];
+  if (entryHas.css) tasks.push(cleanCss);
+  if (entryHas.sass || entryHas.scss) tasks.push(compileSass);
+  if (entryHas.less) tasks.push(compileLess);
+  return tasks;
+})();
+
+const jsTasks = (() => {
+  const tasks = [];
+  if (entryHas.js) tasks.push(cleanJs);
+  if (entryHas.ts) tasks.push(compileTs);
+  return tasks;
+})();
+
+const assetTasks = (() => {
+  const tasks = [];
+  if (entryHas.png || entryHas.jpg || entryHas.webp || entryHas.gif || entryHas.ico) tasks.push(moveImages);
+  if (entryHas.ttf || entryHas.otf || entryHas.woff || entryHas.eot) tasks.push(moveFonts);
+  return tasks;
+})();
+
 export {
   cleanDist,
   cleanHtml,
@@ -89,4 +124,9 @@ export {
   compileTs,
   moveImages,
   moveFonts,
+  entryHas,
+  htmlTasks,
+  cssTasks,
+  jsTasks,
+  assetTasks,
 };

@@ -5,7 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "build": "npx gulp build --gulpfile=config/index.js"
+    "build": "npx gulp build --gulpfile=config/commands/build.js",
+    "serve": "npx gulp serve --gulpfile=config/commands/serve.js"
   },
   "keywords": [],
   "author": "https://github.com/moonwalker935",
@@ -20,6 +21,7 @@
     "gulp-autoprefixer": "^9.0.0",
     "gulp-babel": "^8.0.0",
     "gulp-clean-css": "^4.3.0",
+    "gulp-connect": "^5.7.0",
     "gulp-htmlmin": "^5.0.1",
     "gulp-less": "^5.0.0",
     "gulp-pug": "^5.0.0",

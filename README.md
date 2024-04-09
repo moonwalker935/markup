@@ -6,15 +6,14 @@ Minimal requirements: Node.js and npm.
 Run `npm i`
 
 ## Scripts
-- `npm run build`
+- `npm run build` creates prod build
+- `npm run serve` runs livereload webserver
 
-Options:
-- `name` - is a direct descendant directory name in the "src" directory. It's optional.
+The option `name` is a direct descendant directory name in the "src" directory. It's optional.
 
 Example: `npm run build -- --name=example`.
 
 ## ToDo
-- `serve` command
 - dynamic enabling SVG and JSON handlers
 - JS and CSS sourcemaps
 - hidden enhanced Gulp settings at project's directory
