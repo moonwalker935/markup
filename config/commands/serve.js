@@ -54,11 +54,11 @@ if (entryHas.ts) watch([`${paths.entry}/**/*.ts`], function compile_ts(...args) 
 });
 
 if (
-  entryHas.png ||
-  entryHas.jpg ||
-  entryHas.webp ||
-  entryHas.gif ||
-  entryHas.ico
+  entryHas.png
+  || entryHas.jpg
+  || entryHas.webp
+  || entryHas.gif
+  || entryHas.ico
 ) watch([`${paths.entry}/**/*.{png,jpg,webp,gif,ico}`], function move_images(...args) {
   return moveImages(...args).pipe(connect.reload());
 });
