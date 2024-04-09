@@ -55,6 +55,8 @@ const assetTasks = (() => {
   if (
     entryFileExtensions.includes('ttf')
     || entryFileExtensions.includes('otf')
+    || entryFileExtensions.includes('woff')
+    || entryFileExtensions.includes('eot')
   ) tasks.push(moveFonts);
   return tasks;
 })();
