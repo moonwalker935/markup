@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "build": "npx gulp build --gulpfile=config/main.js"
+    "build": "npx gulp build --gulpfile=config/index.js"
   },
   "keywords": [],
   "author": "https://github.com/moonwalker935",
