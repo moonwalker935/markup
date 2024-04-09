@@ -19,91 +19,64 @@ const cleanDist = (callback) => {
   callback();
 };
 
-const cleanHtml = () => {
-  return src(`${paths.entry}/**/*.html`)
-    .pipe(replace(
-      /=".*\.(pug)"/g,
-      (match, found) => match.replace(`.${found}`, '.html'),
-    ))
-    .pipe(replace(
-      /=".*\.(scss|sass|less|styl)"/g,
-      (match, found) => match.replace(`.${found}`, '.css'),
-    ))
-    .pipe(replace(
-      /=".*\.(ts)"/g,
-      (match, found) => match.replace(`.${found}`, '.js'),
-    ))
-    .pipe(htmlMin({ collapseWhitespace: false }))
-    .pipe(dest(paths.output))
-};
+const _cleanHtml = transform => transform
+  .pipe(replace(
+    /=".*\.(pug)"/g,
+    (match, found) => match.replace(`.${found}`, '.html'),
+  ))
+  .pipe(replace(
+    /=".*\.(scss|sass|less|styl)"/g,
+    (match, found) => match.replace(`.${found}`, '.css'),
+  ))
+  .pipe(replace(
+    /=".*\.(ts)"/g,
+    (match, found) => match.replace(`.${found}`, '.js'),
+  ))
+  .pipe(htmlMin({ collapseWhitespace: true }))
+  .pipe(dest(paths.output));
 
-const compilePug = () => {
-  return src(`${paths.entry}/**/*.pug`)
-    .pipe(pug())
-    .pipe(replace(
-      /=".*\.(pug)"/g,
-      (match, found) => match.replace(`.${found}`, '.html'),
-    ))
-    .pipe(replace(
-      /=".*\.(scss|sass|less|styl)"/g,
-      (match, found) => match.replace(`.${found}`, '.css'),
-    ))
-    .pipe(replace(
-      /=".*\.(ts)"/g,
-      (match, found) => match.replace(`.${found}`, '.js'),
-    ))
-    .pipe(htmlMin({ collapseWhitespace: false }))
-    .pipe(dest(paths.output))
-};
+const cleanHtml = () => _cleanHtml(src(`${paths.entry}/**/*.html`));
 
-const cleanCss = () => {
-  return src(`${paths.entry}/**/*.css`)
-    // options here https://github.com/postcss/autoprefixer#options
-    .pipe(autoprefixer())
-    .pipe(cleanCSS())
-    .pipe(dest(paths.output));
-};
+const compilePug = () => _cleanHtml(
+  src(`${paths.entry}/**/*.pug`)
+    .pipe(pug()),
+);
 
-const compileSass = () => {
-  return src(`${paths.entry}/**/*.{sass,scss}`)
-    .pipe(sass().on('error', sass.logError))
-    .pipe(autoprefixer())
-    .pipe(cleanCSS())
-    .pipe(dest(paths.output));
-};
+const _cleanCss = transform => transform
+  // options here https://github.com/postcss/autoprefixer#options
+  .pipe(autoprefixer())
+  .pipe(cleanCSS())
+  .pipe(dest(paths.output));
 
-const compileLess = () => {
-  return src(`${paths.entry}/**/*.less`)
-    .pipe(less())
-    .pipe(autoprefixer())
-    .pipe(cleanCSS())
-    .pipe(dest(paths.output));
-};
+const cleanCss = () => _cleanCss(src(`${paths.entry}/**/*.css`));
 
-const cleanJs = () => {
-  return src(`${paths.entry}/**/*.js`)
-    .pipe(babel({ presets: ['@babel/env'] }))
-    .pipe(uglify())
-    .pipe(dest(paths.output));
-};
+const compileSass = () => _cleanCss(
+  src(`${paths.entry}/**/*.{sass,scss}`)
+    .pipe(sass().on('error', sass.logError)),
+);
 
-const compileTs = () => {
-  return src(`${paths.entry}/**/*.ts`)
-    .pipe(ts())
-    .pipe(babel({ presets: ['@babel/env'] }))
-    .pipe(uglify())
-    .pipe(dest(paths.output));
-};
+const compileLess = () => _cleanCss(
+  src(`${paths.entry}/**/*.less`)
+    .pipe(less()),
+);
 
-const moveImages = () => {
-  return src(`${paths.entry}/**/*.{png,jpg,gif,ico,webp}`, { removeBOM: false })
-    .pipe(dest(paths.output));
-};
+const _cleanJs = transform => transform
+  .pipe(babel({ presets: ['@babel/env'] }))
+  .pipe(uglify())
+  .pipe(dest(paths.output));
 
-const moveFonts = () => {
-  return src(`${paths.entry}/**/*.{ttf,otf,woff,eot}`, { removeBOM: false })
-    .pipe(dest(paths.output));
-};
+const cleanJs = () => _cleanJs(src(`${paths.entry}/**/*.js`));
+
+const compileTs = () => _cleanJs(
+  src(`${paths.entry}/**/*.ts`)
+    .pipe(ts()),
+);
+
+const moveImages = () => src(`${paths.entry}/**/*.{png,jpg,gif,ico,webp}`, { removeBOM: false })
+  .pipe(dest(paths.output));
+
+const moveFonts = () => src(`${paths.entry}/**/*.{ttf,otf,woff,eot}`, { removeBOM: false })
+  .pipe(dest(paths.output));
 
 export {
   cleanDist,
