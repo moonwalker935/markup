@@ -14,7 +14,7 @@ import ts from 'gulp-typescript';
 import { paths } from './paths.js';
 
 
-const cleanDist = (callback) => {
+const cleanDist = callback => {
   deleteSync(`${paths.output}/**/*`, { force: true });
   callback();
 };
