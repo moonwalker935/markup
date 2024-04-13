@@ -26,7 +26,7 @@ cleanDist(() => {});
 connect.server({
   root: paths.output,
   livereload: true,
-  port: 3000,
+  port: 3001,
 });
 
 if (entryHas.html) watch([`${paths.entry}/**/*.html`], function clean_html(args) {
@@ -71,11 +71,13 @@ if (
   return moveFonts(...args).pipe(connect.reload());
 });
 
-const serve = parallel(
-  parallel(...htmlTasks),
-  parallel(...cssTasks),
-  parallel(...jsTasks),
-  parallel(...assetTasks),
-);
+const mainTask = [
+  htmlTasks.length && parallel(...htmlTasks),
+  cssTasks.length && parallel(...cssTasks),
+  jsTasks.length && parallel(...jsTasks),
+  assetTasks.length && parallel(...assetTasks),
+].filter(Boolean);
+
+const serve = parallel(...mainTask);
 
 export { serve };
