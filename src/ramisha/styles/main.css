@@ -93,64 +93,69 @@ body {
 
 /*header content*/
 
-.header-content {
-  width: 840px;
+.header-content-container {
+  width: 846px;
   height: 366px;
   margin-top: 211px;
+  margin-left: -6px;
 }
 
 .ramisha {
-  width: 840px;
   font-size: 96px;
   color: #DC3635;
   line-height: 68px;
   font-weight: 600;
-  margin-left: -7px;
+  letter-spacing: 0.5px;
 }
 
 .profession {
+  padding: 35px 8px 0;
   font-size: 48px;
   font-style: italic;
   font-weight: bold;
-  padding-top: 37px;
   line-height: 38px;
   letter-spacing: 1.5px;
   color: #FEF4E6;
 }
 
 .header-content-text {
+  padding: 30px 16px 0 8px;
   font-size: 24px;
   color: #FEF4E6;
   letter-spacing: 0.5px;
-  padding-top: 35px;
   font-weight: 400;
+  text-align: justify;
 }
 
 .button-hire-me {
+  margin-left: 8px;
+  margin-top: 26px;
   width: 189px;
   height: 52px;
-  margin-top: 30px;
   background-color: #DC3635;
   
 }
 
 .hire-me {
   font-size: 21px;
+  text-align: justify;
+  letter-spacing: 0.5px;
   font-weight: 500;
   color: #FFFFFF;
 }
 
 .button-contact-me {
+  margin-top: 26px;
+  margin-left: 38px;
   width: 189px;
   height: 52px;
-  margin-top: 30px;
-  margin-left: 42px;
-  
   background-color: #FEF4E6;
 }
 
 .contact-me {
   font-size: 21px;
+  text-align: justify;
+  letter-spacing: 0.5px;
   color: #000000;
   font-weight: 500;
 }
@@ -190,12 +195,14 @@ body {
   font-weight: 600;
   line-height: 38px;
   text-shadow: 1px 4px 4px #C0C0C0;
+  letter-spacing: 1px;
 }
 
 .about-me-text {
-  margin-top: 31px;
+  margin-top: 23px;
   font-size: 24px;
   color: #000;
+  text-align: justify;
   letter-spacing: 1px;
   line-height: 137%;
   text-shadow: 1px 4px 4px #C0C0C0;
@@ -204,10 +211,11 @@ body {
 /*ranges*/
 
 .skills-container {
-  margin-top: 10px;
+  margin-top: 12px;
 }
 
 .skills {
+  margin-bottom: 23px;
   font-size: 24px;
   font-weight: 600;
   color: #000;
@@ -216,15 +224,15 @@ body {
 
 .range-container {
   margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .range-ux {
   -webkit-appearance: none;
   width: 700px;
   height: 20px;
-  background:-webkit-linear-gradient(left, #DC3635 0%, #DC3635 92%, #D9D9D9 92%, #D9D9D9 100%);
-  box-shadow: 1px 5px 5px #C0C0C0;
+  background:-webkit-linear-gradient(left, #DC3635 0%, #DC3635 93%, #D9D9D9 93%, #D9D9D9 100%);
+  box-shadow: 0px 4px 3px #C0C0C0;
 }
 
 .range-app {
@@ -232,23 +240,23 @@ body {
   width: 700px;
   height: 20px;
   background:-webkit-linear-gradient(left, #DC3635 0%, #DC3635 88%, #D9D9D9 88%, #D9D9D9 100%);
-  box-shadow: 1px 5px 5px #C0C0C0;
+  box-shadow: 0px 4px 3px #C0C0C0;
 }
 
 .range-graph {
   -webkit-appearance: none;
   width: 700px;
   height: 20px;
-  background:-webkit-linear-gradient(left, #DC3635 0%, #DC3635 94%, #D9D9D9 94%, #D9D9D9 100%);
-  box-shadow: 1px 5px 5px #C0C0C0;
+  background:-webkit-linear-gradient(left, #DC3635 0%, #DC3635 95%, #D9D9D9 95%, #D9D9D9 100%);
+  box-shadow: 0px 4px 3px #C0C0C0;
 }
 
 .range-web {
   -webkit-appearance: none;
   width: 700px;
   height: 20px;
-  background:-webkit-linear-gradient(left, #DC3635 0%, #DC3635 92%, #D9D9D9 92%, #D9D9D9 100%);
-  box-shadow: 1px 5px 5px #C0C0C0;
+  background:-webkit-linear-gradient(left, #DC3635 0%, #DC3635 93%, #D9D9D9 93%, #D9D9D9 100%);
+  box-shadow: 0px 4px 3px #C0C0C0;
 }
 
 .range::-webkit-slider-thumb {
@@ -259,6 +267,7 @@ body {
   border-radius: 25px;
   border: 2px solid;
   border-color: #DC3635;
+  box-shadow: 2px 3px 4px #808080;
 }
 
 
