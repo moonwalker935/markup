@@ -317,28 +317,26 @@ body {
 .knowledge {
   display: block;
   margin-left: 17px;
-  margin-top: 30px;
+  margin-top: 22px;
   font-size: 30px;
   font-weight: 600;
   line-height: 37px;
-/*  letter-spacing: 0;*/
   text-align: left;
 }
 
 .knowledge-text {
-  margin-top: 31px;
-  margin-left: 17px;
+  margin: 22px 17px 0;
   font-size: 20px;
   font-weight: 400;
   line-height: 24px;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
 }
 
 /* projects */
 
 .projects-container {
   width: 1400px;
-  margin: 140px auto 144px;
+  margin: 125px auto 144px;
   color: #000;
 }
 
@@ -346,31 +344,35 @@ body {
   text-align: center;
   font-size: 55px;
   font-weight: 600;
+  letter-spacing: 0.5px;
+  line-height: 137%;
 }
 
 .project-text {
   margin-left: 117px;
-  margin-top: 20px;
+  margin-top: 5px;
   width: 1164px;
   text-align: center;
   font-size: 24px;
   font-weight: 400;
   letter-spacing: 1px;
+  line-height: 1.37;
 }
 
 .buttons {
   display: flex;
   justify-content: space-between;
-  margin: 66px auto;
+  margin: 55px auto 0;
   width: 897px;
 }
 
 .projects-button {
   background: #FFECEC;
-  padding: 3px 8px;
+  padding: 7px 9px;
   font-size: 24px;
   font-weight: 500;
-  letter-spacing: 1.5px;
+  letter-spacing: 1px;
+  line-height: 1;
 }
 
 .projects-button-active {
@@ -380,4 +382,5 @@ body {
 .project-cards {
   display: flex;
   justify-content: space-between;
+  margin-top: 66px;
 }
