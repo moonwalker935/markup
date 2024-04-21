@@ -384,3 +384,170 @@ body {
   justify-content: space-between;
   margin-top: 66px;
 }
+
+/* Testimonials */
+
+.background-red {
+  width: 100%;
+  background: #DC3635;
+}
+
+.testimonials-container {
+  margin: 0 auto;
+  width: 1404px;
+}
+
+.testimonials {
+  text-align: center;
+  padding-top: 45px;
+  font-weight: 600;
+  font-size: 55px;
+  letter-spacing: 1.5px;
+}
+
+.testimonials-text {
+  margin-left: 107px;
+  margin-top: 10px;
+  width: 1164px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  line-height: 1.37;
+}
+
+.carousel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.slider-button {
+  margin-left: 22px;
+  margin-right: 22px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #FFFFFF;
+}
+
+.slider-polygon-left {
+  margin-top: 7px;
+  margin-left: 2px;
+}
+
+.slider-polygon-right {
+  margin-top: 7px;
+  margin-left: 8px;
+}
+
+.testimonials-cards {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 51px;
+  width: 1250px;
+}
+
+.testimonial-card {
+  width: 290px;
+}
+
+.card-photo {
+  position: absolute;
+  border-radius: 50%;
+  margin: 0 65px;
+  width: 160px;
+  height: 160px;
+  border: 1px #808080 solid;
+}
+
+.text-border {
+  margin-top: 80px;
+  border: 1px black solid; 
+  border-radius: 10px;
+  width: 290px;
+  height: 290px;
+}
+
+.testimonial-card-text {
+  margin: 112px 20px auto;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.stars {
+  margin-top: 10px;
+  margin-left: 20px;
+  font-size: 30px;
+}
+
+.slider-indicators {
+  display: flex;
+  margin-top: 24px;
+  justify-content: center;
+}
+
+.slider-indicator {
+  margin: 0 5px;
+  width: 41px;
+  height: 13px;
+  background: #FEF4E6;
+  border-radius: 10px;
+}
+
+/* contact me */
+
+.contact-container {
+  width: 100%;
+  background: #DC3635;
+  height: 450px;
+}
+
+.contact-me {
+  padding-top: 135px;
+  text-align: center;
+  font-size: 55px;
+  font-weight: 600;
+  color: #FEF4E6;
+}
+
+.contact-text {
+  margin-left: 375px;
+  width: 1170px;
+  color: #FEF4E6;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  margin: 50px auto 0;
+  width: 953px;
+  height: 75px;
+}
+
+input[type=text] {
+  width: 630px;
+  height: 100%;
+  border-radius: 10px;
+  background: #FFFFFF;
+  font-size: 24px;
+  font-weight: 400;
+  padding-left: 20px;
+  color: #000000;
+}
+
+input[type=submit] {
+  width: 274px;
+  height: 100%;
+  margin-left: 43px;
+  background: #493C3B;
+  border-radius: 10px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #FFFFFF;
+}
