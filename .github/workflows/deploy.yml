@@ -11,6 +11,16 @@ on:
 #  id-token: write
 
 jobs:
+  deps:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Prepare Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install Dependencies
+        run: npm ci
+
   build:
     runs-on: ubuntu-latest
     steps:
