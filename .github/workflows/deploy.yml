@@ -27,10 +27,8 @@ jobs:
         run: npm run build
       - name: Move files
         run: mv dist/* ./
-      - name: BLABLA
-        run: ls -1
-      #- name: Checkout
-      #  uses: actions/checkout@v4
+      - name: Clean work dir
+        run: rm -rf .github config src dist node_modules .editorconfig .gitignore README.md package-lock.json package.json
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
