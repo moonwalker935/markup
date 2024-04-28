@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  deps:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -17,22 +17,10 @@ jobs:
           node-version: 20
       - name: Install Dependencies
         run: npm ci && npm install gulp
-
-  build:
-    needs: deps
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Prepare Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
       - name: Build
         run: npm run build
       - name: Move files
-        run: |
-          mv dist/* ./
+        run: mv dist/* ./
 
   deploy:
     needs: build
