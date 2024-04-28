@@ -22,6 +22,7 @@ jobs:
         run: npm ci
 
   build:
+    needs: deps
     runs-on: ubuntu-latest
     steps:
       - name: Prepare Node.js
