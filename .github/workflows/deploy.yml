@@ -33,6 +33,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+      - name: Install Gulp
+        run: npm install gulp
       - name: Build
         run: npm run build
 
