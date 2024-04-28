@@ -9,8 +9,7 @@ body {
 /* Header */
 
 .header {
-  background-image: linear-gradient(90deg, rgba(0,0,1,1) 0%, rgba(0,0,1,0.8) 23%, rgba(0,0,0,0) 100%),
-                    url("../images/young-content-creator-smiling-blonde-girl-with-headphones-working-her-laptop-table-with-camera 1.jpg");
+  background-image: linear-gradient(90deg, rgba(0,0,1,1) 0%, rgba(0,0,1,0.8) 23%, rgba(0,0,0,0) 100%), url("../images/young-content-creator-smiling-blonde-girl-with-headphones-working-her-laptop-table-with-camera 1.jpg");
   width: 100%;
   height: 1001px;
 }
@@ -132,11 +131,8 @@ body {
   width: 189px;
   height: 52px;
   background-color: #DC3635;
-}
-
-.hire-me {
   font-size: 21px;
-  text-align: justify;
+  text-align: center;
   letter-spacing: 0.5px;
   font-weight: 500;
   color: #FFFFFF;
@@ -148,11 +144,8 @@ body {
   width: 189px;
   height: 52px;
   background-color: #FEF4E6;
-}
-
-.contact-me {
   font-size: 21px;
-  text-align: justify;
+  text-align: center;
   letter-spacing: 0.5px;
   color: #000000;
   font-weight: 500;
@@ -550,4 +543,79 @@ input[type=submit] {
   font-size: 24px;
   font-weight: 600;
   color: #FFFFFF;
+}
+
+/* footer */
+
+.footer-background {
+  width: 100%;
+  background: #FFECEC;
+}
+
+.footer-container {
+  padding: 66px 0;
+}
+
+.footer-ramisha {
+  margin-left: auto;
+  margin-right: auto;
+  width: 178px;
+  height: 28px;
+  font-size: 40px;
+  color: #493C3B;
+  font-weight: 400;
+}
+
+.footer-ramisha::first-letter {
+  font-size: 40px;
+  font-weight: 800;
+  color: #DC3635;
+}
+
+.nav-footer {
+  margin: 55px auto 0;
+  padding: 16px;
+  width: 832px;
+  height: 52px;  
+}
+
+.nav-list-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-link-footer {
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: #000;
+}
+
+.social-link {
+  display: flex;
+  justify-content: space-between;
+  margin: 50px auto 0;
+  width: 432px;
+  height: 48px;
+}
+
+.copyright-block {
+  margin: 30px auto 33px;
+  width: 516px;
+  height: 36px;
+}
+
+.copyright {
+  font-family: "Poppins", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  text-align: center;
+  color: #000;
+}
+
+.red-text {
+  font-family: "Poppins", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #DC3635;
 }
