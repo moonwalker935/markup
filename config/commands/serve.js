@@ -13,6 +13,7 @@ import {
   compileTs,
   moveFonts,
   moveImages,
+  moveDocs,
   entryHas,
   assetTasks,
   cssTasks,
@@ -69,6 +70,9 @@ if (
   || entryHas.eot
 ) watch([`${paths.entry}/**/*.{ttf,otf,woff,eot}`], function move_fonts(...args) {
   return moveFonts(...args).pipe(connect.reload());
+});
+if (entryHas.txt) watch([`${paths.entry}/**/*.{txt}`], function move_docs(...args) {
+  return moveDocs(...args).pipe(connect.reload());
 });
 
 const mainTask = [
