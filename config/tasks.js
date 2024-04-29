@@ -79,6 +79,9 @@ const moveImages = () => src(`${paths.entry}/**/*.{png,jpg,gif,ico,webp}`, { rem
 const moveFonts = () => src(`${paths.entry}/**/*.{ttf,otf,woff,eot}`, { removeBOM: false })
   .pipe(dest(paths.output));
 
+const moveDocFiles = () => src(`${paths.entry}/**/*.{txt}`)
+  .pipe(dest(paths.output));
+
 const entryHas = getWorkDirFileExtensions(paths.entry).reduce((extensions, extension) => {
   extensions[extension] = true;
   return extensions;
@@ -124,6 +127,7 @@ export {
   compileTs,
   moveImages,
   moveFonts,
+  moveDocFiles,
   entryHas,
   htmlTasks,
   cssTasks,
