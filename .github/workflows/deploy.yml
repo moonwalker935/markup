@@ -25,10 +25,10 @@ jobs:
         run: npm ci && npm install gulp
       - name: Build
         run: npm run build
-      - name: Move files
-        run: mv dist/* ./
       - name: Clean work dir
-        run: rm -rf .github config src dist node_modules .editorconfig .gitignore README.md package-lock.json package.json
+        run: rm -rf .github config src node_modules .editorconfig .gitignore README.md package-lock.json package.json
+      - name: Extract build
+        run: mv dist/* ./ && rm -rf dist
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
