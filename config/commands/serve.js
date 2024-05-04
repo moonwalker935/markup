@@ -18,7 +18,7 @@ import {
   assetTasks,
   cssTasks,
   htmlTasks,
-  jsTasks,
+  jsTasks, moveSvg, moveJson,
 } from '../tasks.js';
 
 
@@ -30,7 +30,7 @@ connect.server({
   port: 3001,
 });
 
-if (entryHas.html) watch([`${paths.entry}/**/*.html`], function clean_html(args) {
+if (entryHas.html) watch([`${paths.entry}/**/*.html`], function clean_html(...args) {
   return cleanHtml(...args).pipe(connect.reload());
 });
 if (entryHas.pug) watch([`${paths.entry}/**/*.pug`], function compile_pug(...args) {
@@ -63,6 +63,9 @@ if (
 ) watch([`${paths.entry}/**/*.{png,jpg,webp,gif,ico}`], function move_images(...args) {
   return moveImages(...args).pipe(connect.reload());
 });
+if (entryHas.svg) watch([`${paths.entry}/**/*.{svg}`], function move_svg(...args) {
+  return moveSvg(...args).pipe(connect.reload());
+});
 if (
   entryHas.ttf
   || entryHas.otf
@@ -73,6 +76,9 @@ if (
 });
 if (entryHas.txt) watch([`${paths.entry}/**/*.{txt}`], function move_docs(...args) {
   return moveDocs(...args).pipe(connect.reload());
+});
+if (entryHas.json) watch([`${paths.entry}/**/*.{json}`], function move_json(...args) {
+  return moveJson(...args).pipe(connect.reload());
 });
 
 const mainTask = [

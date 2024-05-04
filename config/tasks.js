@@ -10,11 +10,10 @@ import less from 'gulp-less';
 import babel from 'gulp-babel';
 import uglify from 'gulp-uglify';
 import ts from 'gulp-typescript';
+import jsonMinify from 'gulp-json-minify';
 
 import { paths } from './paths.js';
 import { getWorkDirFileExtensions } from './utils.js';
-import path from 'path';
-import fs from 'fs';
 
 
 const cleanDist = callback => {
@@ -78,10 +77,16 @@ const compileTs = () => _cleanJs(
 const moveImages = () => src(`${paths.entry}/**/*.{png,jpg,gif,ico,webp}`, { removeBOM: false })
   .pipe(dest(paths.output));
 
+const moveSvg = () => _cleanHtml(src(`${paths.entry}/**/*.svg`));
+
 const moveFonts = () => src(`${paths.entry}/**/*.{ttf,otf,woff,eot}`, { removeBOM: false })
   .pipe(dest(paths.output));
 
 const moveDocs = () => src(`${paths.entry}/**/*.txt`)
+  .pipe(dest(paths.output));
+
+const moveJson = () => src(`${paths.entry}/**/*.json`)
+  .pipe(jsonMinify())
   .pipe(dest(paths.output));
 
 const entryHas = getWorkDirFileExtensions(paths.entry).reduce((extensions, extension) => {
@@ -114,8 +119,10 @@ const jsTasks = (() => {
 const assetTasks = (() => {
   const tasks = [];
   if (entryHas.png || entryHas.jpg || entryHas.webp || entryHas.gif || entryHas.ico) tasks.push(moveImages);
+  if (entryHas.svg) tasks.push(moveSvg);
   if (entryHas.ttf || entryHas.otf || entryHas.woff || entryHas.eot) tasks.push(moveFonts);
   if (entryHas.txt) tasks.push(moveDocs);
+  if (entryHas.json) tasks.push(moveJson);
   return tasks;
 })();
 
@@ -129,8 +136,10 @@ export {
   cleanJs,
   compileTs,
   moveImages,
+  moveSvg,
   moveFonts,
   moveDocs,
+  moveJson,
   entryHas,
   htmlTasks,
   cssTasks,

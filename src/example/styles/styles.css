@@ -13,7 +13,7 @@ body {
   font-family: Montserrat, sans-serif;
 }
 
-img {
+img:not(img[src$=".svg"]) {
   filter: invert(1);
 }
 

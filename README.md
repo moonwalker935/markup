@@ -14,8 +14,6 @@ The option `name` is a direct descendant directory name in the "src" directory. 
 Example: `npm run build -- --name=example`.
 
 ## ToDo
-- dynamic enabling SVG and JSON handlers
 - JS and CSS sourcemaps
 - hidden enhanced Gulp settings at project's directory
 - images compression
-- publish all web-sites with navigation index.html at directly src directory
