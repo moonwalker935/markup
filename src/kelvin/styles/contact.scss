@@ -1,0 +1,75 @@
+@import "vars";
+@import "utils";
+
+#contact {
+  max-width: 340px;
+  margin: 0 auto;
+  padding-top: 90px;
+  padding-bottom: 90px;
+  text-align: center;
+
+  @include on-small(
+    max-width initial,
+    padding-top 60px,
+    padding-bottom 60px,
+  );
+
+  @include on-medium(
+    max-width 340px,
+    padding-top 60px,
+    padding-bottom 60px,
+  );
+
+  .title {
+    font-weight: 600;
+    font-size: 2.42rem;
+    line-height: 3.64rem;
+    color: $light-black;
+  }
+
+  .offer {
+    font-size: 1.26rem;
+    color: $light-black;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    @include on-large(
+      margin-top 40px,
+      margin-bottom 40px,
+    );
+
+    @include on-extra-large(
+      margin-top 40px,
+      margin-bottom 40px,
+    );
+  }
+
+  .email {
+    padding: 8px 22px;
+    border-radius: 42px;
+    font-size: 1.26rem;
+    background-color: $light-black;
+    color: $white;
+  }
+
+  .socials {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 70px;
+    margin-bottom: 20px;
+
+    @include on-small(
+      margin-top 80px,
+      margin-bottom 40px,
+    );
+
+    @include on-medium(
+      margin-top 80px,
+      margin-bottom 40px,
+    );
+  }
+
+  .hint {
+    color: $gray-text;
+  }
+}
