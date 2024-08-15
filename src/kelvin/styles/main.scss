@@ -1,0 +1,14 @@
+@import "reset.css";
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  line-height: 28px;
+}
+
+@import "utils";
+@import "header";
+@import "home";
+@import "features";
+@import "portfolio";
+@import "contact";

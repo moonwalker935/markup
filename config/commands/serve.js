@@ -27,7 +27,7 @@ cleanDist(() => {});
 connect.server({
   root: paths.output,
   livereload: true,
-  port: 3001,
+  port: 3000,
 });
 
 if (entryHas.html) watch([`${paths.entry}/**/*.html`], function clean_html(...args) {

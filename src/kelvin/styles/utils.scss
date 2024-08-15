@@ -1,0 +1,78 @@
+@import "vars";
+
+.grid {
+  margin: 0 auto;
+
+  &-full {
+    @include on-small(
+        width 100%,
+        margin 0,
+        padding-left 30px,
+        padding-right 30px,
+    );
+
+    @include on-medium(
+      max-width $small,
+    );
+
+    @include on-large(
+      max-width $medium,
+    );
+
+    @include on-extra-large(
+      max-width $large,
+    );
+  }
+
+  &-half {
+    @include on-small(
+      width 100%,
+    );
+
+    @include on-medium(
+      width calc($small / 2),
+    );
+
+    @include on-large(
+      width calc($medium / 2),
+    );
+
+    @include on-extra-large(
+      width calc($large / 2),
+    );
+  }
+}
+
+.h-full {
+  height: 100%;
+}
+
+.flex {
+  display: flex;
+}
+
+.a-self-end {
+  align-self: end;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.hide-on-small {
+  @include on-small(
+    display none,
+  );
+}
+
+.show-on-small {
+  display: none;
+
+  @include on-small(
+    display block,
+  );
+}

@@ -1,0 +1,18 @@
+header.header
+  .grid.grid-full
+    nav.navigation
+      a.logo(href='#')
+        img.logotype(src='images/logo.png' alt='Kelvin')
+
+      .hide-on-small
+        include nav-list
+
+      .show-on-small
+        button#show-menu(type='button')
+          img(src='images/hamburger.png' alt='menu')
+
+#menu.show-on-small
+  button#close-menu(type='button')
+    img(src='images/menu-close.png' alt='close')
+
+  include nav-list

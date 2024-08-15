@@ -1,0 +1,47 @@
+/* Colors */
+
+$white: #fff;
+$black: #000;
+$gray: #f1f1f1;
+$lightgray: #f1f1f1;
+
+$darkgray-text: #606060;
+$gray-text: #828282;
+
+/* Viewport sizes */
+
+$small: 768px;
+$medium: 992px;
+$large: 1200px;
+
+/* Mixins */
+
+@mixin applying-iterate($properties...) {
+  @each $property in $properties {
+    #{nth($property, 1)}: nth($property, 2);
+  }
+}
+
+@mixin on-small($properties...) {
+  @media (max-width: $small) {
+    @include applying-iterate($properties...);
+  }
+}
+
+@mixin on-medium($properties...) {
+  @media (min-width: calc($small + 1px)) and (max-width: $medium) {
+    @include applying-iterate($properties...);
+  }
+}
+
+@mixin on-large($properties...) {
+  @media (min-width: calc($medium + 1px)) and (max-width: $large) {
+    @include applying-iterate($properties...);
+  }
+}
+
+@mixin on-extra-large($properties...) {
+  @media (min-width: calc($large + 1px)) {
+    @include applying-iterate($properties...);
+  }
+}
