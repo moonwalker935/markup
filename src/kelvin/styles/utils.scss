@@ -1,5 +1,35 @@
 @import "vars";
 
+@mixin applying-iterate($properties...) {
+  @each $property in $properties {
+    #{nth($property, 1)}: nth($property, 2);
+  }
+}
+
+@mixin on-small($properties...) {
+  @media (max-width: $small) {
+    @include applying-iterate($properties...);
+  }
+}
+
+@mixin on-medium($properties...) {
+  @media (min-width: calc($small + 1px)) and (max-width: $medium) {
+    @include applying-iterate($properties...);
+  }
+}
+
+@mixin on-large($properties...) {
+  @media (min-width: calc($medium + 1px)) and (max-width: $large) {
+    @include applying-iterate($properties...);
+  }
+}
+
+@mixin on-extra-large($properties...) {
+  @media (min-width: calc($large + 1px)) {
+    @include applying-iterate($properties...);
+  }
+}
+
 .grid {
   margin: 0 auto;
 
@@ -41,6 +71,24 @@
       width calc($large / 2),
     );
   }
+
+  &-one-third {
+    @include on-small(
+      width 100%,
+    );
+
+    @include on-medium(
+      width 33%,
+    );
+
+    @include on-large(
+      width 33%,
+    );
+
+    @include on-extra-large(
+      width 33%,
+    );
+  }
 }
 
 .h-full {
@@ -49,6 +97,12 @@
 
 .flex {
   display: flex;
+}
+
+.gap {
+  $gap: 30px;
+  column-gap: $gap;
+  row-gap: $gap * 2;
 }
 
 .a-self-end {

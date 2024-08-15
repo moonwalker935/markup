@@ -6,11 +6,10 @@
   width: 100%;
   padding-top: 46px;
   padding-bottom: 20px;
-  background: rgba($gray, 0.5);
   backdrop-filter: blur(8px);
 
   @include on-small(
-      padding-top 40px,
+      padding-top 25px,
   );
 
   .navigation {
@@ -67,6 +66,7 @@
   }
 
   .nav-link {
+    display: block;
     font-weight: 600;
     font-size: 2.42rem;
     line-height: 3.64rem;

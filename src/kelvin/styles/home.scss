@@ -6,19 +6,19 @@
   background-color: $gray;
 
   @include on-medium(
-    height 654px,
+    height 650px,
   );
 
   @include on-large(
-    height 694px,
+    height 720px,
   );
 
   @include on-extra-large(
-      height 734px,
+      height 770px,
   );
 
   .content {
-    height: calc(100% - 35px);
+    height: 100%;
 
     @include on-small(
       height initial,

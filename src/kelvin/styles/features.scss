@@ -1,0 +1,36 @@
+@import "utils";
+
+#features {
+  padding-top: 90px;
+  padding-bottom: 90px;
+
+  @include on-small(
+    padding-top 30,
+    padding-bottom 30,
+  );
+
+  @include on-medium(
+    padding-top 30px,
+    padding-bottom 30px,
+  );
+
+  .content {
+    @include on-small(
+      flex-wrap wrap,
+    );
+  }
+
+  .feature {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+
+    .title {
+      margin-top: 30px;
+      margin-bottom: 10px;
+      font-weight: 600;
+      font-size: 1.71rem;
+      line-height: 2.57rem;
+    }
+  }
+}
