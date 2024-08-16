@@ -1,0 +1,132 @@
+@import "vars";
+
+@mixin applying-iterate($properties...) {
+  @each $property in $properties {
+    #{nth($property, 1)}: nth($property, 2);
+  }
+}
+
+@mixin on-small($properties...) {
+  @media (max-width: $small) {
+    @include applying-iterate($properties...);
+  }
+}
+
+@mixin on-medium($properties...) {
+  @media (min-width: calc($small + 1px)) and (max-width: $medium) {
+    @include applying-iterate($properties...);
+  }
+}
+
+@mixin on-large($properties...) {
+  @media (min-width: calc($medium + 1px)) and (max-width: $large) {
+    @include applying-iterate($properties...);
+  }
+}
+
+@mixin on-extra-large($properties...) {
+  @media (min-width: calc($large + 1px)) {
+    @include applying-iterate($properties...);
+  }
+}
+
+.grid {
+  margin: 0 auto;
+
+  &-full {
+    @include on-small(
+        width 100%,
+        margin 0,
+        padding-left 30px,
+        padding-right 30px,
+    );
+
+    @include on-medium(
+      max-width $small,
+    );
+
+    @include on-large(
+      max-width $medium,
+    );
+
+    @include on-extra-large(
+      max-width $large,
+    );
+  }
+
+  &-half {
+    @include on-small(
+      width 100%,
+    );
+
+    @include on-medium(
+      width calc($small / 2),
+    );
+
+    @include on-large(
+      width calc($medium / 2),
+    );
+
+    @include on-extra-large(
+      width calc($large / 2),
+    );
+  }
+
+  &-one-third {
+    @include on-small(
+      width 100%,
+    );
+
+    @include on-medium(
+      width 33%,
+    );
+
+    @include on-large(
+      width 33%,
+    );
+
+    @include on-extra-large(
+      width 33%,
+    );
+  }
+}
+
+.h-full {
+  height: 100%;
+}
+
+.flex {
+  display: flex;
+}
+
+.gap {
+  $gap: 30px;
+  column-gap: $gap;
+  row-gap: $gap * 2;
+}
+
+.a-self-end {
+  align-self: end;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.hide-on-small {
+  @include on-small(
+    display none,
+  );
+}
+
+.show-on-small {
+  display: none;
+
+  @include on-small(
+    display block,
+  );
+}

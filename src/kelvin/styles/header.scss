@@ -1,0 +1,80 @@
+@import "vars";
+@import "utils";
+
+.header {
+  position: fixed;
+  width: 100%;
+  padding-top: 46px;
+  padding-bottom: 20px;
+  backdrop-filter: blur(8px);
+
+  @include on-small(
+      padding-top 25px,
+  );
+
+  .navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-list {
+    display: flex;
+  }
+
+  .nav-item {
+    &:not(:last-child) {
+      margin-right: 50px;
+    }
+  }
+
+  .nav-link {
+    color: $darkgray-text;
+    transition: color 0.2s linear;
+
+    &:hover {
+      color: $black;
+    }
+  }
+}
+
+#menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 46px 30px 30px;
+  background-color: $white;
+  transform: translateX(100%);
+  transition: transform ease-out 0.3s;
+
+  #close-menu {
+    position: absolute;
+    top: 46px;
+    right: 30px;
+  }
+
+  &.opened {
+    transform: translateX(0);
+  }
+
+  .nav-item {
+    &:not(:first-child) {
+      margin-top: 30px;
+    }
+  }
+
+  .nav-link {
+    display: block;
+    font-weight: 600;
+    font-size: 2.42rem;
+    line-height: 3.64rem;
+    color: $gray-text;
+    transition: color 0.2s linear;
+
+    &.active, &:hover {
+      color: $black;
+    }
+  }
+}

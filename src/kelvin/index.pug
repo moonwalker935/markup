@@ -1,0 +1,112 @@
+doctype html
+html(lang='en')
+  head
+    include templates/head
+
+  body
+    header.header
+      .grid.grid-full
+        nav.navigation
+          a.logo(href='#')
+            img.logotype(src='images/logo.png' alt='Kelvin')
+
+          .hide-on-small
+            include templates/nav-list
+
+          .show-on-small
+            button#show-menu(type='button')
+              img(src='images/hamburger.png' alt='menu')
+
+    #menu.show-on-small
+      button#close-menu(type='button')
+        img(src='images/menu-close.png' alt='close')
+
+      include templates/nav-list
+
+    section#home
+      .grid.grid-full.h-full
+        .flex.content
+          .grid.grid-half
+            .text
+              h1.title Kelvin Kramer
+                br
+                .
+                  Designer & Developer
+              p.subtitle I'm a portrait, fashion and lifestyle photographer living in New York City.
+                br.hide-on-small
+                .
+                  During my thirteen year tenure here.
+
+          .grid.grid-half.a-self-end
+            .hero
+              img.heroman(src='images/hero.png' alt='Hero')
+
+    section#features
+      .grid.grid-full
+        .flex.gap.content
+          .grid.grid-one-third
+            article.feature
+              img(src='images/feature-design.png' alt='')
+              span.title UI/UX DESIGN
+              span.description
+                | Our design is translated into comprehensive digital environments
+                | built on latest development standards.
+
+          .grid.grid-one-third
+            article.feature
+              img(src='images/feature-development.png' alt='')
+              span.title DEVELOPMENT
+              span.description
+                | Our design is translated into comprehensive digital environments
+                | built on latest development standards.
+
+          .grid.grid-one-third
+            article.feature
+              img(src='images/feature-testing.png' alt='')
+              span.title SOFTWARE TESTING
+              span.description
+                | Our design is translated into comprehensive digital environments
+                | built on latest development standards.
+
+    section#portfolio
+      .grid.grid-full
+        h2.title Portfolio
+
+        article.case
+          img(src='images/case-fashion.jpg' alt='Online fashion store - Homepage')
+          a.link(href='#') Online fashion store - Homepage
+
+        article.case
+          img(src='images/case-reebok.jpg' alt='Reebok Store - Concept')
+          a.link(href='#') Reebok Store - Concept
+
+        article.case
+          img(src='images/case-braun.jpg' alt='Braun Landing Page - Concept')
+          a.link(href='#') Braun Landing Page - Concept
+
+    section#contact
+      .grid.grid-full
+        h2.title Contacts
+        p.offer Want to know more or just chat?
+          br
+          .
+            You are welcome!
+
+        button.email(type='button') Send message
+
+        .socials
+          a(href='#')
+            img(src='images/social-linkedin.png' alt='LinkedIn')
+          a(href='#')
+            img(src='images/social-instagram.png' alt='Instagram')
+          a(href='#')
+            img(src='images/social-behance.png' alt='Behance')
+          a(href='#')
+            img(src='images/social-dribble.png' alt='Dribble')
+
+        p.hint Like me on
+          br
+          .
+            LinkedIn, Instagram, Behance, Dribble
+
+    script(type='text/javascript' src='scripts/client.js')

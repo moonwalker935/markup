@@ -1,0 +1,78 @@
+@import "vars";
+@import "utils";
+
+#home {
+  padding-top: 46px;
+  background-color: $gray;
+
+  @include on-medium(
+    height 650px,
+  );
+
+  @include on-large(
+    height 720px,
+  );
+
+  @include on-extra-large(
+      height 770px,
+  );
+
+  .content {
+    height: 100%;
+
+    @include on-small(
+      height initial,
+      flex-wrap wrap,
+    );
+  }
+
+  .text {
+    .title {
+      line-height: 4.71rem;
+      font-size: 3.14rem;
+      font-weight: 600;
+
+      @include on-small(
+        margin-top 50px,
+        line-height 3rem,
+        font-size 2rem,
+      );
+
+      @include on-medium(
+        margin-top 125px,
+        line-height 3.4rem,
+        font-size 2.2rem,
+      );
+
+      @include on-large(
+        margin-top 150px,
+        line-height 4rem,
+        font-size 2.7rem,
+      );
+
+      @include on-extra-large(
+        margin-top 200px,
+      );
+    }
+
+    .subtitle {
+      margin-top: 20px;
+    }
+  }
+
+  .hero {
+    text-align: right;
+    pointer-events: none;
+
+    @include on-small(
+      margin-top 20px,
+      text-align center,
+    );
+
+    &man {
+      @include on-small(
+        width 290px,
+      );
+    }
+  }
+}
