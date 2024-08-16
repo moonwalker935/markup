@@ -1,15 +1,15 @@
 ;document.addEventListener('DOMContentLoaded', () => {
-  subscribeHashLinks();
-  subscribeMobileMenuButtons();
-  // todo: activate mobile menu links by scroll position
+  handleHashLinks();
+  handleMobileMenuButtons();
 });
 
-function subscribeHashLinks() {
+const emptyHashLink = '#';
+
+function handleHashLinks() {
   const menuElement = document.getElementById('menu');
 
   document.body.addEventListener('click', event => {
     const link = event.target.getAttribute('href');
-    const emptyHashLink = '#';
 
     if (!link?.startsWith(emptyHashLink) || link === emptyHashLink) return;
 
@@ -26,18 +26,45 @@ function subscribeHashLinks() {
   });
 }
 
-function subscribeMobileMenuButtons() {
+function handleMobileMenuButtons() {
   const showMenuButton = document.getElementById('show-menu');
   const closeMenuButton = document.getElementById('close-menu');
   const menuElement = document.getElementById('menu');
+  const menuLinkElements = [...menuElement.getElementsByClassName('nav-link')];
+  const sections = [
+    'contact',
+    'portfolio',
+    'features',
+    'home',
+  ];
 
   showMenuButton.addEventListener('click', () => {
     document.body.classList.add('no-scroll');
     menuElement.classList.add('opened');
+
+    const visibleSectionId = sections.find(id => isElementVisible(document.getElementById(id)));
+    if (!visibleSectionId) return;
+
+    const visibleSectionLinkElement = menuLinkElements.find(el => {
+      return el.getAttribute('href').slice(emptyHashLink.length) === visibleSectionId;
+    });
+
+    if (!visibleSectionLinkElement) return;
+
+    menuLinkElements.forEach(el => el.classList.remove('active'));
+    visibleSectionLinkElement.classList.add('active');
   });
 
   closeMenuButton.addEventListener('click', () => {
     document.body.classList.remove('no-scroll');
     menuElement.classList.remove('opened');
   });
+}
+
+function isElementVisible(element) {
+  const rect = element.getBoundingClientRect();
+  const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+
+  // todo: fix logic
+  return rect.top <= 0 || rect.bottom <= windowHeight;
 }
